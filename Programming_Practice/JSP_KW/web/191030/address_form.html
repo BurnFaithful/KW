@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Address Form</title>
+    <style type="text/css">
+        div {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table {
+            width: 500px;
+            border: 1px solid black;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            border-spacing: 1px;
+        }
+
+        tr {
+            padding: 5px;
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function validate()
+        {
+            var userName = document.getElementById("userName");
+            var tel = document.getElementById("tel");
+            var email = document.getElementById("email");
+
+            if (!userName.value || !tel.value || !email.value) {
+                alert("입력되지 않은 값이 있습니다.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+<div>
+    <h2>주소록</h2>
+    <hr>
+
+    <form method="POST" onsubmit="return validate();" action="address_add.jsp" name="addressForm">
+        <table>
+            <tr>
+                <td>이름</td>
+                <td>
+                    <input type="text" id="userName" name="userName" size="10">
+                </td>
+            </tr>
+            <tr>
+                <td>전화번호</td>
+                <td>
+                    <input type="text" id="tel" name="tel" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td>
+                    <input type="email" id="email" name="email" size="30">
+                </td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td>
+                    <select id="sex" name="sex">
+                        <option selected>남</option>
+                        <option>여</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="확인">
+                    <input type="reset" value="취소">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

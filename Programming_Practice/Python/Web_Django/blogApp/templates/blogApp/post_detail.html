@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <h2>{{ object.title }}</h2>
+        <p class="other_posts">
+            {% if object.get_previous_by_modify_date %}
+                <a href="{{ object.get_previous_post.get_absolute_url }}" title="View Previous Post" style="float:left">
+                &lt;--이전 글 : {{ object.get_previous_post }}
+                </a>
+            {% endif %}
+            &nbsp;
+            {% if object.get_next_by_modify_date %}
+                <a href="{{ object.get_next_post.get_absolute_url }}" title="View Next Post" style="float:right">
+                다음 글 : {{ object.get_next_post }}--&gt;
+                </a>
+            {% endif %}
+        </p>
+
+        <p class="date">{{ object.modify_date|date:"Y.m.j" }}</p>
+        <br/>
+
+        <div class="body">
+            {{ object.content|linebreaks }}
+        </div>
+
+        <div>
+            <strong>TAGS: </strong>
+            {% load tagging_tags %}
+            {% tags_for_object object as tags %}
+            {% for tag in tags %}
+                <a href="{% url 'blogApp:tagged_object_list' tag.name %}">{{ tag.name }}</a>
+            {% endfor %}
+            <a href="{% url 'blogApp:tag_cloud' %}"><i>[ TagCloud ]</i></a>
+        </div>
+
+        <br/>
+        <div>
+            {% load disqus_tags %}
+            {% disqus_show_comments %}
+        </div>
+    </div>
+{% endblock %}

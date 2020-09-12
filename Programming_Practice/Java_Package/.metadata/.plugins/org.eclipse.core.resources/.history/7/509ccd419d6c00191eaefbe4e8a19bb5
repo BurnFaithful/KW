@@ -1,0 +1,18 @@
+package youngmin.util;
+
+public class YoungminUniversalCalc {
+	
+	public static void main(String[] args) {
+		
+		youngmin.calc.YoungminCalc ymCalc = new youngmin.calc.YoungminCalc();
+		
+		int resAdd = ymCalc.addition(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+		System.out.println("1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 = " + resAdd);
+		
+		int resSub = ymCalc.subtraction(1, 2, 3);
+		System.out.println("1 - 2 - 3 = " + resSub);
+		
+		int resMul = ymCalc.multiplication(1, 2, 3, 4, 5);
+		System.out.println("1 * 2 * 3 * 4 * 5 = " + resMul);
+	}
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>계산기</title>
+</head>
+<body>
+    <div style="margin-left: auto; margin-top: auto; text-align: center">
+        <h3>계산기</h3>
+        <hr>
+        <form name="calcForm" action="/CalcServlet" method="POST">
+            <input type="text" id="left_value_text_input" name="num1"/>
+            <select name="operator">
+                <option value="+" selected>+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="text" id="right_value_text_input" name="num2"/>
+            <input type="submit" value="계산"/>
+            <input type="reset" value="다시입력"/>
+        </form>
+    </div>
+</body>
+</html>

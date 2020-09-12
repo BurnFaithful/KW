@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Login.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static 'css/forms.css' %}{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <h1>Please Login</h1>
+        <form action="." method="post">{% csrf_token %}
+            {% if form.error %}
+                <p class="errornote">Login Failed.</p>
+            {% endif %}
+
+            <p>ID, Password를 입력하세요.</p>
+            <fieldset class="aligned">
+                <div class="form-row">
+                    {{ form.username.label_tag }}{{ form.username }}
+                </div>
+                <div class="form-row">
+                    {{ form.password.label_tag }}{{ form.password }}
+                </div>
+            </fieldset>
+
+            <div class="submit-row">
+                <input type="submit" value="Login"/>
+                <input type="hidden" name="next" value="{{ next }}"/>
+            </div>
+
+            <script type="text/javascript">
+                document.getElementById('id_username').focus();
+            </script>
+        </form>
+    </div>
+{% endblock content %}
+
+{% block footer %}
+<div id="footer">
+    &copy; Y.M.Kwon Django Web Programming Since 2019
+</div>
+{% endblock footer %}
+

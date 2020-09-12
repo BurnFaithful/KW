@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Item>
+  <Item Id="101" ItemKind="502" Name="hammer" EventKind="0" ItemImage="item_hammer" CursorImage="cursor_hammer"/>
+  <Item Id="102" ItemKind="503" Name="message1" EventKind="0" ItemImage="item_message1" CursorImage=""/>
+  <Item Id="103" ItemKind="502" Name="keyCard" EventKind="0" ItemImage="item_keyCard" CursorImage="cursor_keyCard"/>
+  <Item Id="104" ItemKind="503" Name="message2" EventKind="0" ItemImage="item_message2" CursorImage=""/>
+  <Item Id="105" ItemKind="502" Name="key" EventKind="0" ItemImage="item_key" CursorImage="cursor_key"/>
+  <Item Id="106" ItemKind="504" Name="tablet" EventKind="10003" ItemImage="item_tablet" CursorImage=""/>
+</Item>

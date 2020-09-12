@@ -1,0 +1,14 @@
+1556000975478	Encapsulate field 'strEmpty'
+1556079286169	Rename package 'youngmin.gui'
+1556079389743	Rename package 'youngmin.guidraw'
+1556079797527	Copy package
+1556079806430	Delete element
+1556079818501	Move compilation unit
+1556079820965	Delete element
+1556079926612	Copy compilation unit
+1556079992774	Move compilation unit
+1556080076758	Delete element
+1556083979074	Delete element
+1556093485961	Rename type 'BaseGUI'
+1556095163826	Rename type 'Dispose'
+1556099111657	Rename type 'CalcFrame'

@@ -1,0 +1,7 @@
+package youngmin.util;
+
+import youngmin.calc.YoungminCalc;
+
+public class PerfectCalc extends YoungminCalc {
+
+}

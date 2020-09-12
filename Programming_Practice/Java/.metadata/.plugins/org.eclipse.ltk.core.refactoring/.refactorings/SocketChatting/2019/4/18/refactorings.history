@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;youngmin.chat.server.Server&apos; to &apos;ServerService&apos;&#x0D;&#x0A;- Original project: &apos;SocketChatting&apos;&#x0D;&#x0A;- Original element: &apos;youngmin.chat.server.Server&apos;&#x0D;&#x0A;- Renamed element: &apos;youngmin.chat.server.ServerService&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Server&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;youngmin.chat.server{Server.java[Server" matchStrategy="1" name="ServerService" qualified="false" references="true" similarDeclarations="false" stamp="1556547119085" textual="false" version="1.0"/>
+</session>

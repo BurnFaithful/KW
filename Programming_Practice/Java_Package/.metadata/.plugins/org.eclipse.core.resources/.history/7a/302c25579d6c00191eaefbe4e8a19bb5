@@ -1,0 +1,26 @@
+package youngmin.util;
+
+import youngmin.calc.YoungminCalc;
+
+public class PerfectCalc extends YoungminCalc {
+	
+	public float Division(int x, int y)
+	{
+		int result = 0;
+		
+		try
+		{
+			result = x / y;
+		}
+		catch (ArithmeticException e)
+		{
+			System.out.println("0으로는 나눌 수 없음.");
+			result = 1;
+		}
+		finally
+		{
+		}
+		
+		return result;
+	}
+}

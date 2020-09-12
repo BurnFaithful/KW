@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Question>
+  <Question Id="1" Text="64 -&gt; 63 -&gt; 61 -&gt; 57 -&gt; 49 -&gt; 33 -&gt; ?" Answer="1"/>
+  <Question Id="2" Text="16 -&gt; 37 -&gt; 58 -&gt; 89 -&gt; 145 -&gt; 42 -&gt; 20 -&gt; ? -&gt;. 이 수들은 순환하고 있다." Answer="4"/>
+  <Question Id="3" Text="818-821-683-248-540-???. 물음표의 1의 자리." Answer="4"/>
+  <Question Id="4" Text="가장 작은 완전수." Answer="6"/>
+  <Question Id="5" Text="6 + 3 = 39, 7 + 1 = 68, 8 + 6 = 214, 9 + 2 = 711, 5 + 4 = ??, 정답의 1의 자리." Answer="9"/>
+  <Question Id="6" Text="STUDY = 14136, PLAY = 3466, BATH = 3646, E = ?" Answer="8"/>
+</Question>

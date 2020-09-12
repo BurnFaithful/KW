@@ -1,0 +1,12 @@
+#main_btn_learn_more {
+    transition: color 0.3s;
+}
+
+#main_btn_learn_more:hover {
+    color: orange;
+}
+
+.carousel-inner > .item > img {
+    width: 100%;
+    height: 100%;
+}

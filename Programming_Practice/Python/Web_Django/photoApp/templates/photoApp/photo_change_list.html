@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}photo_change_list.html{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <h1>Photo Change - {{ user }}</h1>
+
+        <table class="change-list">
+            <thead>
+                <tr>
+                    <th>Album</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Owner</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in object_list %}
+                    <tr>
+                        <td>{{ item.album }}</td>
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.description }}</td>
+                        <td>{{ item.owner }}</td>
+                        <td><a href="{% url 'photoApp:photo_update' item.id %}">Update</a></td>
+                        <td><a href="{% url 'photoApp:photo_delete' item.id %}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+{% block footer %}
+<div id="footer">
+    &copy; Y.M.Kwon Django Web Programming Since 2019
+</div>
+{% endblock footer %}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Django Web Programming{% endblock %}</title>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}?ver=2" />
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>#}
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"/>#}
+    <link rel="stylesheet" type="text/css" href="{% block extrastyle %}{% endblock %}" />
+
+{#    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>#}
+{#    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.js"></script>#}
+</head>
+
+<body>
+    <div id="header">
+        <h2 class="maintitle">Easy &amp; Fast Django Web Programming</h2>
+{#        <h4 class="welcome">Welcome, <a href="#">shkim</a> /#}
+{#            <a href="#">Change Password</a> /#}
+{#            <a href="#">Logout</a>#}
+{#        </h4>#}
+        {% if user.is_active %}
+            <h4 class="welcome">Welcome, /
+                <strong>{% firstof user.get_short_name user.get_user_name %}</strong>
+                <a href="{% url 'password_change' %}">Change Password</a> /
+                <a href="{% url 'logout' %}">Logout</a>
+            </h4>
+        {% else %}
+            <h4 class="welcome">Welcome, Anonymous /
+                <a href="{% url 'login' %}">Login</a> /
+                <a href="{% url 'register' %}">Register</a>
+            </h4>
+        {% endif %}
+    </div>
+
+    <div id="menu">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'bookmarkApp:index' %}">Bookmark</a></li>
+        <li><a href="{% url 'blogApp:index' %}">Blog</a></li>
+        <li><a href="{% url 'photoApp:index' %}">Photo</a></li>
+
+        <li><a href="#">Add&bigtriangledown;</a>
+            <ul>
+                <li><a href="{% url 'bookmarkApp:add' %}">Bookmark</a></li>
+                <li><a href="{% url 'blogApp:add' %}">Blog</a></li>
+                <li><a href="{% url 'photoApp:album_add' %}">Album</a></li>
+                <li><a href="{% url 'photoApp:photo_add' %}">Photo</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Change&bigtriangledown;</a>
+            <ul>
+                <li><a href="{% url 'bookmarkApp:change' %}">Bookmark</a></li>
+                <li><a href="{% url 'blogApp:change' %}">Blog</a></li>
+                <li><a href="{% url 'photoApp:album_change' %}">Album</a></li>
+                <li><a href="{% url 'photoApp:photo_change' %}">Photo</a></li>
+            </ul>
+        </li>
+
+        <li><a href="{% url 'blogApp:post_archive' %}">Archive</a></li>
+        <li><a href="{% url 'blogApp:search' %}">Search</a></li>
+        <li><a href="{% url 'admin:index' %}">Admin</a></li>
+    </div>
+
+    {% block content %}{% endblock %} {% block footer %}{% endblock %}
+</body>
+
+</html>

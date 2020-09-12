@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TeamProject_Team3_EscapeRoom", "TeamProject_Team3_EscapeRoom\TeamProject_Team3_EscapeRoom.vbproj", "{6CD5E862-427B-4DD9-8C04-F66628C4441C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CD5E862-427B-4DD9-8C04-F66628C4441C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CD5E862-427B-4DD9-8C04-F66628C4441C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CD5E862-427B-4DD9-8C04-F66628C4441C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CD5E862-427B-4DD9-8C04-F66628C4441C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CB78F52F-5FC2-441F-B46C-B9A6029D787E}
+	EndGlobalSection
+EndGlobal

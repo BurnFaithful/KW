@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;youngmin.group.BorderLayout.java&apos; to &apos;YM_BorderLayout.java&apos;&#x0D;&#x0A;- Original project: &apos;VariousPractice&apos;&#x0D;&#x0A;- Original element: &apos;youngmin.group.BorderLayout.java&apos;&#x0D;&#x0A;- Renamed element: &apos;youngmin.group.YM_BorderLayout.java&apos;" description="Rename compilation unit &apos;BorderLayout.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;youngmin.group{BorderLayout.java" name="YM_BorderLayout.java" references="false" stamp="1560394421123" version="1.0"/>
+</session>

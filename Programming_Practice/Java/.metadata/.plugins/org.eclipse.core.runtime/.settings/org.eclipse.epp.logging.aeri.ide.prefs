@@ -1,0 +1,9 @@
+anonymizeMessages=true
+configured=true
+eclipse.preferences.version=1
+reporterEmail=burnfaithful@gmail.com
+reporterName=Kwon Youngmin
+resetSendMode=KEEP
+resetSendModeOn=0
+sendMode=BACKGROUND
+servers/org.eclipse.epp.logging.aeri.ide.server/configured=true

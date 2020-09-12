@@ -1,0 +1,195 @@
+package Client;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
+
+import javax.swing.*;
+
+@SuppressWarnings("serial")
+public class Client extends JFrame implements Runnable, KeyListener, ActionListener, FocusListener {
+	
+	private Socket clSocket = null;
+	
+	public static final String WINDOW_TITLE_NAME = "Chatting Server"; 
+	public static final int WINDOW_SIZE_WIDTH = 640;
+	public static final int WINDOW_SIZE_HEIGHT = 480;
+	
+	private JTextArea printArea;
+	private JTextField inputArea;
+	private JButton unconnectBtn;
+	
+	private BufferedWriter sendWriter = null;
+	
+	public Client()
+	{
+		this.setGUI();
+		
+		BufferedReader tempBuffer = null;
+		String sendData = null;
+			
+		try
+		{
+			clSocket = new Socket("127.0.0.1", 8080);
+			
+			//tempBuffer = new BufferedReader(new InputStreamReader(System.in));
+			tempBuffer = new BufferedReader(new InputStreamReader(clSocket.getInputStream()));
+			sendWriter = new BufferedWriter(new OutputStreamWriter(clSocket.getOutputStream()));
+			
+			Thread clientThread = new Thread(this);
+			clientThread.start();
+			
+//			while (true)
+//			{
+//				sendData = tempBuffer.readLine();
+//				printArea.append("너 : " + sendData + "\n");
+//			}
+			
+// Console Code			
+			while ((sendData = tempBuffer.readLine()) != null)
+			{
+				if (sendData.equals("bye")) break;
+				
+				sendWriter.write(sendData);
+				sendWriter.flush();
+			}
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			printArea.append("[ " + clSocket.getInetAddress() + " ] 클라이언트의 연결이 종료되었습니다.");
+		}
+		finally
+		{
+			try
+			{
+				if (tempBuffer != null) tempBuffer.close();
+				if (sendWriter != null) sendWriter.close();
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void setGUI()
+	{
+		this.setTitle(WINDOW_TITLE_NAME);
+		this.setSize(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT);
+		this.setResizable(false);
+		this.setLocationRelativeTo(null); // 윈도우 정중앙에 출력
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 닫기 실행
+		
+		printArea = new JTextArea("=====GUI 채팅방=====\n", 30, 30);
+		printArea.setEditable(false);
+		
+		inputArea = new JTextField(10);
+		inputArea.setText("여기에 입력하세요.");
+		inputArea.addKeyListener(this);
+		inputArea.addFocusListener(this);
+		
+		unconnectBtn = new JButton("연결 해제");
+		unconnectBtn.addActionListener(this);
+		
+		this.add(printArea, BorderLayout.CENTER);
+		this.add(inputArea, BorderLayout.SOUTH);
+		//this.add(unconnectBtn, BorderLayout.EAST);
+		this.setVisible(true);
+	}
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		BufferedReader tempBuffer = null;
+		String receiveData = null;
+		
+		try
+		{
+			tempBuffer = new BufferedReader(new InputStreamReader(clSocket.getInputStream()));
+		
+			while (true)
+			{
+				receiveData = tempBuffer.readLine();
+				// Console
+				//System.out.println("서버 : " + receiveData);
+				printArea.append("상대 : " + receiveData + "\n");
+			}
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			printArea.append("연결이 끊겼습니다.");
+		}
+		finally
+		{
+			try
+			{
+				if (clSocket != null && !clSocket.isClosed()) clSocket.close();
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		if (e.getKeyCode() == KeyEvent.VK_ENTER)
+		{
+			String clientMsg = inputArea.getText();
+			printArea.append(clSocket.getInetAddress() + " : " + clientMsg + "\n");
+			inputArea.setText("");
+			
+			try
+			{
+				sendWriter.write(clientMsg + "\n");
+				sendWriter.flush();
+			}
+			catch (Exception e2)
+			{
+				e2.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {}
+	
+
+	@Override
+	public void focusGained(FocusEvent arg0) {
+		// TODO Auto-generated method stub
+		inputArea.setText("");
+	}
+
+	@Override
+	public void focusLost(FocusEvent arg0) 
+	{
+		inputArea.setText("여기에 입력하세요.");
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public static void main(String[] args) {		
+		new Client();		
+	}
+}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}register.html{% endblock %}
+{% load staticfiles %}
+{% block extrastyle %}{% static 'css/forms.css' %}{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <h1>Please Register</h1>
+
+        <form action="." method="POST">{% csrf_token %}
+            {% if form.error %}
+                <p class="errornote">Register Failed.</p>
+            {% endif %}
+
+            <p>Id, Password, Password Check를 입력하세요.</p>
+            <fieldset class="aligned">
+                <div class="form-row">
+                    {{ form.username.label_tag }}{{ form.username }}
+                </div>
+                <div class="form-row">
+                    {{ form.password1.label_tag }}{{ form.password1 }}
+                </div>
+                <div class="form-row">
+                    {{ form.password2.label_tag }}{{ form.password2 }}
+                </div>
+            </fieldset>
+
+            <div class="submit-row">
+                <input type="submit" value="등록"/>
+            </div>
+
+            <script type="text/javascript">
+                document.getElementById('id_username').focus();
+            </script>
+        </form>
+    </div>
+{% endblock content %}
+
+{% block footer %}
+<div id="footer">
+    &copy; Y.M.Kwon Django Web Programming Since 2019
+</div>
+{% endblock footer %}
+

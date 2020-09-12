@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}tagging_post_list.html{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <h1>Posts for tag-{{ tag.name }}</h1>
+        {% for post in object_list %}
+            <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+            {{ post.modify_date|date:"N d, Y" }}
+            <p>{{ post.description }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block footer %}
+<div id="footer">
+    &copy; Y.M.Kwon Django Web Programming Since 2019
+</div>
+{% endblock footer %}

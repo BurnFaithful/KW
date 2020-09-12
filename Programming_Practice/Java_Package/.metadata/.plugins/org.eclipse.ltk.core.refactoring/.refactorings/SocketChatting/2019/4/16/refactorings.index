@@ -1,0 +1,12 @@
+1555386814380	Delete element
+1555386864158	Rename type 'MainClient'
+1555387067882	Delete element
+1555478849854	Rename type 'Sv_SendThread'
+1555478859681	Rename type 'Cl_ReceiveThread'
+1555486118482	Delete element
+1555486404820	Delete element
+1555501214415	Rename type 'MainServer'
+1555751693706	Rename package 'Client'
+1555751697166	Rename package 'Server'
+1555751716874	Rename package 'client'
+1555751723802	Rename package 'server'
